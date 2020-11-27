@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.blankj.utilcode.util.NetworkUtils" />
+
+        <variable
+            name="networkImageUrl"
+            type="String" />
+
+        <variable
+            name="localImageResource"
+            type="int" />
+
+        <variable
+            name="imagePadding"
+            type="int" />
+
+        <variable
+            name="ClickHandler"
+            type="grace.immanuel.ineffable.listener.EventHandleListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image"
+            image="@{networkImageUrl}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="@{imagePadding}"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ineffable" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:rippleColor="@color/girl_color"
+            android:layout_marginBottom="10dp"
+            android:src="@android:drawable/ic_dialog_dialer"
+            android:backgroundTint="@color/girl_color"
+            android:onClick="@{ClickHandler::onButtonClicked}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
